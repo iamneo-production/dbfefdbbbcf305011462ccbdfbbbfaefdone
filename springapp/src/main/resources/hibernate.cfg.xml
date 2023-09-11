@@ -1,0 +1,30 @@
+
+      <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/testhibernate?useSSL=false&amp;createDatabaseIfNotExist=true</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">examly</property>
+        <property name="hibernate.connection.serverTimezone">UTC</property> <!-- Set the server timezone -->
+        <property name="hibernate.connection.allowPublicKeyRetrieval">true</property> <!-- Allow public key retrieval -->
+
+        <!-- Specify MySQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Automatically create/update database schema -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+
+        <!-- Enable SQL logging for debugging purposes -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        
+        <!-- write a map class for the model files -->
+        <mapping class="com.examly.springapp.Model.Person"/>
+        <mapping class="com.examly.springapp.Model.Address"/>
+        
+    </session-factory>
+</hibernate-configuration>
